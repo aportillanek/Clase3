@@ -15,10 +15,14 @@
 	 <script type="text/javascript" >
           data=<%-JSON.stringify(documentos)%>
           debugger;
-          var lista= $("#lista");
+          $(document).ready(function(){
+           var lista= $("#lista");
           $.each(data, function(i,item){
 			lista.append("<br>"+i+" - "+data[i].nombre+" - "+data[i].apellido+" - "+data[i].email+" - "+data[i].edad);
-		})
+		});
+
+          });
+          
 
 	 </script>
 </body>
