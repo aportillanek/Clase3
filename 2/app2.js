@@ -40,7 +40,15 @@ app.get('/registro',(req,res)=> {
   res.render('./registro');
 });
 
+app.get('/usuarios',(req,res)=> {
+     User.find(function(err,doc)
+     {
+       if(err) return err;
+       console.log(doc);
 
+     })
+
+});
 app.post('/registrar',(req,res)=>{
 	console.log(req.body.apellido);
 	var user= new User({
