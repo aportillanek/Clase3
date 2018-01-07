@@ -45,7 +45,7 @@ app.get('/usuarios',(req,res)=> {
      {
        if(err) return err;
        console.log(doc);
-
+       res.render('./usuarios',{documentos:doc});
      })
 
 });
