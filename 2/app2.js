@@ -1,6 +1,21 @@
 var express=  require('express');
 var bodyParser =require('body-parser');
+var mongoose= require ('mongoose');
+var Schema =mongoose.Schema;
 
+mongoose.connect('mongodb://localhost/paises');
+
+var userSchemaJSON={
+  nombre:String,
+  apellido:String,
+  email:String,
+  edad:Number
+  
+};
+
+var user_schema=new Schema(userSchemaJSON);
+
+var User= mongoose.model('User',user_schema);
 
 var app = express();
 
@@ -24,8 +39,20 @@ app.get('/:nombre/:apellido',(req,res)=> {
 app.get('/registro',(req,res)=> {
   res.render('./registro');
 });
+
+
 app.post('/registrar',(req,res)=>{
 	console.log(req.body.apellido);
+	var user= new User({
+      nombre:req.body.nombre,
+      apellido:req.body.apellido,
+      email:req.body.email,
+      edad:req.body.edad
+
+	});
+	user.save(function(){
+		res.send('Hemos creado al usuario');
+	})
 })
 
 app.listen(puerto,()=> {
