@@ -7,15 +7,17 @@
 <body>
 	 <h1>Usuarios registrados</h1>
 	 <ul>
-        <li></li>
+        <li id="lista"></li>
 	 </ul>
 
-    
-	 <script type="text/javascript" src="js/jquery-slim.min.js">
+    <script src="js/jquery-slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	 <script type="text/javascript" >
           data=<%-JSON.stringify(documentos)%>
           debugger;
+          var lista= $("#lista");
           $.each(data, function(i,item){
-			document.write("<br>"+i+" - "+data[i].nombre+" - "+data[i].apellido+" - "+data[i].email+" - "+data[i].edad);
+			lista.append("<br>"+i+" - "+data[i].nombre+" - "+data[i].apellido+" - "+data[i].email+" - "+data[i].edad);
 		})
 
 	 </script>
