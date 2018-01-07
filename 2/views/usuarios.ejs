@@ -14,7 +14,9 @@
 	 <script type="text/javascript">
           data=<%-JSON.stringify(documentos)%>
           debugger;
-          
+          $.each(data, function(i,item){
+			document.write("<br>"+i+" - "+data[i].nombre+" - "+data[i].apellido+" - "+data[i].email+" - "+data[i].edad);
+		})
 
 	 </script>
 </body>

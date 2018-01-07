@@ -46,6 +46,7 @@ app.get('/usuarios',(req,res)=> {
        if(err) return err;
        console.log(doc);
        res.render('./usuarios',{documentos:doc});
+       
      })
 
 });
@@ -58,6 +59,9 @@ app.post('/registrar',(req,res)=>{
       edad:req.body.edad
 
 	});
+     
+
+
 	user.save(function(){
 		res.send('Hemos creado al usuario');
 	})
